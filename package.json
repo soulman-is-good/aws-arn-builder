@@ -1,0 +1,31 @@
+{
+  "name": "aws-arn-builder",
+  "version": "1.0.0",
+  "description": "Helper package for building and parsing AWS ARN",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "npm run update-botocore && rm -rf dist && tsc",
+    "update-botocore": "curl -sLf https://raw.githubusercontent.com/boto/botocore/develop/botocore/data/endpoints.json -o src/botocore.json",
+    "prepublishOnly": "npm run build",
+    "docs": "typedoc src/index.ts",
+    "test:types": "tsc --noEmit",
+    "test:unit": "node --test --require ts-node/register ./test/index.ts",
+    "test": "npm run test:unit && npm run test:types"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Maxim Savin",
+    "email": "soulman.is.good@gmail.com"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.19.34",
+    "ts-node": "^10.9.2",
+    "typedoc": "^0.23.21",
+    "typescript": "^4.9.3"
+  }
+}

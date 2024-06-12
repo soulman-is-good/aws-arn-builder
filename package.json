@@ -7,6 +7,9 @@
   "files": [
     "dist/"
   ],
+  "repository": {
+    "url": "https://github.com/soulman-is-good/aws-arn-builder"
+  },
   "scripts": {
     "build": "npm run update-botocore && rm -rf dist && tsc",
     "update-botocore": "curl -sLf https://raw.githubusercontent.com/boto/botocore/develop/botocore/data/endpoints.json -o src/botocore.json",
